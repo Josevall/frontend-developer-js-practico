@@ -8,7 +8,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
 
@@ -22,18 +22,18 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
-    aside.classList.add('inactive');
+    shoppingCartContainer.classList.add('inactive');
 }
 
 // navbar-shopping-cart desplegable
 
 const menuCartIcon = document.querySelector('.navbar-shopping-cart');
-const aside = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
-menuCartIcon.addEventListener('click', toggleCartAside);
+menuCartIcon.addEventListener('click', toggleShoppingCartContainer);
 
-function toggleCartAside() {
-    aside.classList.toggle('inactive');
+function toggleShoppingCartContainer() {
+    shoppingCartContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive')
 
@@ -116,4 +116,4 @@ function renderProducts(arr) {
     }
 }
 
-renderProducts(productList);
+renderProducts(productList); //Esta funcion se puede llamar en cualquier momento, por ejemplo, cuando le damos click a un boton. 
