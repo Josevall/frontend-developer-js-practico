@@ -248,6 +248,10 @@ aside {
 
 /* ProductDetail */
 
+#productDetail {
+  border-radius: 20px;
+  margin: 24px 0;
+}
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -266,7 +270,7 @@ aside {
   width: 100%;
   height: 360px;
   object-fit: cover;
-  border-radius: 0 0 20px 20px;
+  border-radius: 20px;
 }
 #productDetail .product-info {
   margin: 24px 24px 0 24px;
@@ -376,6 +380,12 @@ aside {
       .product-card img {
         width: 140px;
         height: 140px;
+      }
+      #shoppingCartContainer {
+        width: 100%;
+      }
+      #productDetail {
+        width: 100%;
       }
   }
 

@@ -9,6 +9,7 @@ menuEmail.addEventListener('click', toggleDesktopMenu);
 function toggleDesktopMenu() {
     desktopMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 
@@ -23,6 +24,7 @@ menuHamIcon.addEventListener('click', toggleMobileMenu);
 function toggleMobileMenu() {
     mobileMenu.classList.toggle('inactive');
     shoppingCartContainer.classList.add('inactive');
+    productDetailContainer.classList.add('inactive');
 }
 
 // navbar-shopping-cart desplegable
@@ -36,6 +38,7 @@ function toggleShoppingCartContainer() {
     shoppingCartContainer.classList.toggle('inactive');
     mobileMenu.classList.add('inactive');
     desktopMenu.classList.add('inactive')
+    productDetailContainer.classList.add('inactive');
 
 }
 
@@ -77,6 +80,7 @@ productList.push({
 })
 
 
+
 function renderProducts(arr) {
     for (product of productList) {  // un ciclo For mas sencillo
         const productCard = document.createElement('div'); // se crea el primer div como en el html
@@ -86,7 +90,8 @@ function renderProducts(arr) {
     
         // product = {name, price, image} --> product.img para sacar la imagen que tengamos en el elemento del array. 
         const proudctImg = document.createElement('img');
-        proudctImg.setAttribute('src', product.image); // 
+        proudctImg.setAttribute('src', product.image); 
+        proudctImg.addEventListener('click', openProductDetailAside); // Este eventListener es para abrir el aside del product detail al darle click a la imagen del producto.
     
         const productInfo = document.createElement('div');
         productInfo.classList.add('product-info');
@@ -117,3 +122,20 @@ function renderProducts(arr) {
 }
 
 renderProducts(productList); //Esta funcion se puede llamar en cualquier momento, por ejemplo, cuando le damos click a un boton. 
+
+// Product Detail Aside desplegable 
+
+const productDetailContainer = document.querySelector('#productDetail'); // creamos una constante que nos permita seleccionar el id del aside que queremos que se abra al darle click a la imagen. 
+const productDetailCloseIcon = document.querySelector('.product-detail-close');
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
+
+function openProductDetailAside() {
+    productDetailContainer.classList.remove('inactive'); // A traves de esta funcion removemos el inactive del product detail para que salga al hacer click en la imagen del producto. 
+    shoppingCartContainer.classList.add('inactive');
+    desktopMenu.classList.add('inactive');
+    mobileMenu.classList.add('inactive');
+}
+
+function closeProductDetailAside() {
+    productDetailContainer.classList.add('inactive');
+}
